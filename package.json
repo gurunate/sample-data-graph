@@ -12,6 +12,7 @@
   "dependencies": {
     "apollo-datasource-rest": "^0.8.0",
     "apollo-server": "^2.11.0",
+    "date-fns": "^2.11.0",
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.2"
   }
