@@ -18,7 +18,7 @@ $ npm start
 
 #### Playground
 
-- [http://localhost:4000/]
+-   http://localhost:4000
 
 ## References
 
