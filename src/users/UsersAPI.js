@@ -9,15 +9,25 @@ class UsersAPI extends RESTDataSource {
         this.baseURL = process.env.USERS_API_HOST;
     }
 
-    async getUsers(dateFormat = DATE_FORMAT) {
-        const users = await this.get('users');
-
-        return users.map(user => ({
+    reduceUser(user, dateFormat = DATE_FORMAT) {
+        return {
             ...user,
             fullName: `${user.firstName} ${user.lastName}`,
             createdAtFormatted: format(new Date(user.createdAt), dateFormat),
             updatedAtFormatted: format(new Date(user.updatedAt), dateFormat)
-        }));
+        };
+    }
+
+    async getUsers({ dateFormat = DATE_FORMAT }) {
+        const users = await this.get('users');
+
+        return users.map(user => this.reduceUser(user, dateFormat));
+    }
+
+    async getUser({ id, dateFormat }) {
+        const user = await this.get(`users/${id}`);
+
+        return this.reduceUser(user, dateFormat);
     }
 
     async saveUser(data) {

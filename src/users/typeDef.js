@@ -15,6 +15,7 @@ const typeDef = gql`
 
     extend type Query {
         users(dateFormat: String): [User]
+        user(id: ID!, dateFormat: String): User
     }
 
     type Mutation {
