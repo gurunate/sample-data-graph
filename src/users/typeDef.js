@@ -18,15 +18,20 @@ const typeDef = gql`
         user(id: ID!, dateFormat: String): User
     }
 
-    input UserInput {
+    input CreateUserInput {
         id: ID
         firstName: String!
         lastName: String!
         email: String!
     }
 
+    input DeteleUserInput {
+        id: ID!
+    }
+
     type Mutation {
-        saveUser(input: UserInput!): User!
+        saveUser(input: CreateUserInput!): User!
+        removeUser(input: DeteleUserInput!): String
     }
 `;
 

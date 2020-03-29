@@ -7,13 +7,14 @@ const resolvers = {
     },
     Mutation: {
         saveUser: async (_, { input }, { dataSources }) => {
-            console.log({ input });
             if (input.id) {
                 return await dataSources.UsersAPI.updateUser(input);
             } else {
                 return await dataSources.UsersAPI.createUser(input);
             }
-        }
+        },
+        removeUser: async (_, { input }, { dataSources }) =>
+            await dataSources.UsersAPI.deleteUser(input)
     }
 };
 
