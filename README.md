@@ -20,6 +20,43 @@ $ npm start
 
 -   http://localhost:4000
 
+##### GraphQL Examples
+
+###### Query
+
+```
+query {
+  users {
+    id
+    firstName
+    lastName
+    email
+  }
+}
+```
+
+###### Mutation
+```
+mutation saveUpate($user: UserInput!) {
+  saveUser(input: $user) {
+    firstName
+    lastName
+    email
+  }
+}
+```
+###### Variables
+
+```
+{
+  "user": {
+    "firstName": "Guy", 
+    "lastName": "gieri", 
+    "email": "guy.fieri@flavortown.com"
+  }
+}
+```
+
 ## References
 
 -   [GraphQL](https://www.graphql.com/)
