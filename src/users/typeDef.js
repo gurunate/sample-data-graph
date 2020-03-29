@@ -5,7 +5,7 @@ const typeDef = gql`
         id: ID!
         firstName: String!
         lastName: String!
-        fullName: String!
+        fullName: String
         email: String!
         createdAt: String
         createdAtFormatted: String
@@ -18,8 +18,14 @@ const typeDef = gql`
         user(id: ID!, dateFormat: String): User
     }
 
+    input UserInput {
+        firstName: String!
+        lastName: String!
+        email: String!
+    }
+
     type Mutation {
-        updateUser(data: String!): User
+        saveUser(input: UserInput!): User!
     }
 `;
 

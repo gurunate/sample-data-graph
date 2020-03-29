@@ -6,8 +6,13 @@ const resolvers = {
             await dataSources.UsersAPI.getUser(options)
     },
     Mutation: {
-        updateUser: async (_, { data }, { dataSources }) =>
-            await dataSources.UsersAPI.saveUsers(data)
+        saveUser: async (_, data, { dataSources }) => {
+            if (data.id) {
+                return await dataSources.UsersAPI.updateUsser(data);
+            } else {
+                return await dataSources.UsersAPI.createUser(data);
+            }
+        }
     }
 };
 

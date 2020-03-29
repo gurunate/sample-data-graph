@@ -30,7 +30,11 @@ class UsersAPI extends RESTDataSource {
         return this.reduceUser(user, dateFormat);
     }
 
-    async saveUser(data) {
+    async createUser({ input }) {
+        return await this.put('users', input);
+    }
+
+    async updateUser(data) {
         return await this.post('users', { data });
     }
 }
