@@ -20,11 +20,11 @@ $ npm start
 
 -   http://localhost:4000
 
-##### GraphQL Examples
+#### Examples
 
-###### Query
+##### Queries
 
-```
+```javascript
 query {
   users {
     id
@@ -35,9 +35,9 @@ query {
 }
 ```
 
-###### Mutation
-```
-mutation saveUpate($user: UserInput!) {
+##### Mutations
+```javascript
+mutation saveUpate($user: SaveUserInput!) {
   saveUser(input: $user) {
     firstName
     lastName
@@ -47,13 +47,19 @@ mutation saveUpate($user: UserInput!) {
 ```
 ###### Variables
 
-```
+```json
 {
   "user": {
     "firstName": "Guy", 
     "lastName": "gieri", 
     "email": "guy.fieri@flavortown.com"
   }
+}
+```
+
+```javascript
+mutation {
+  removeUser(input: { id: 16 })
 }
 ```
 
