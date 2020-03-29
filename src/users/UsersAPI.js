@@ -30,12 +30,12 @@ class UsersAPI extends RESTDataSource {
         return this.reduceUser(user, dateFormat);
     }
 
-    async createUser({ input }) {
-        return await this.put('users', input);
+    async createUser(user) {
+        return await this.put('users', user);
     }
 
-    async updateUser(data) {
-        return await this.post('users', { data });
+    async updateUser(user) {
+        return await this.post(`users/${user.id}`, user);
     }
 }
 
