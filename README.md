@@ -1,6 +1,6 @@
 # sample-data-graph
 
-A sample Apollo GraphQL server with a [Users service](https://github.com/gurunate/users-service) REST data source.
+A sample [Apollo server](https://www.apollographql.com/docs/apollo-server/) ([GraphQL](https://graphql.org/)) with a [Users service](https://github.com/gurunate/users-service) REST data source.
 
 ## Setup
 
@@ -16,7 +16,7 @@ $ npm i
 $ npm start
 ```
 
-#### Playground
+#### Playground (GraphiQL)
 
 -   http://localhost:4000
 
@@ -36,6 +36,7 @@ query {
 ```
 
 ##### Mutations
+
 ```javascript
 mutation saveUpate($user: SaveUserInput!) {
   saveUser(input: $user) {
@@ -45,15 +46,16 @@ mutation saveUpate($user: SaveUserInput!) {
   }
 }
 ```
+
 ###### Variables
 
 ```json
 {
-  "user": {
-    "firstName": "Guy", 
-    "lastName": "gieri", 
-    "email": "guy.fieri@flavortown.com"
-  }
+    "user": {
+        "firstName": "Guy",
+        "lastName": "gieri",
+        "email": "guy.fieri@flavortown.com"
+    }
 }
 ```
 
@@ -64,6 +66,13 @@ mutation {
 ```
 
 ## References
+
+### Related Resources
+
+-   [sample-web-app](https://github.com/gurunate/sample-web-app)
+-   [users-service](https://github.com/gurunate/users-service)
+
+### External Links
 
 -   [GraphQL](https://www.graphql.com/)
 -   [Apollo](https://www.apollographql.com/)
