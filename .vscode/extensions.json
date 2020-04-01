@@ -1,7 +1,8 @@
 {
     "recommendations": [
+        "apollographql.vscode-apollo",
+        "esbenp.prettier-vscode",
         "mikestead.dotenv",
-        "prisma.vscode-graphql",
-        "apollographql.vscode-apollo"
+        "prisma.vscode-graphql"
     ]
 }
