@@ -14,7 +14,12 @@ const resolvers = {
             }
         },
         removeUser: async (_, { input }, { dataSources }) =>
-            await dataSources.UsersAPI.deleteUser(input)
+            await dataSources.UsersAPI.deleteUser(input),
+        removeUsers: (_, { input }, { dataSources }) => {
+            input.forEach(async user => {
+                await dataSources.UsersAPI.deleteUser(user);
+            });
+        }
     }
 };
 

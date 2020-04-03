@@ -32,6 +32,7 @@ const typeDef = gql`
     type Mutation {
         saveUser(input: SaveUserInput!): User!
         removeUser(input: DeteleUserInput!): String
+        removeUsers(input: [DeteleUserInput!]): String
     }
 `;
 
