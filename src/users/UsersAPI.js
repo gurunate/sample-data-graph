@@ -1,5 +1,5 @@
 const { RESTDataSource } = require('apollo-datasource-rest');
-const format = require('date-fns/format');
+const format = require('date-fns-tz/format');
 
 const DATE_FORMAT = 'MMM dd, yyyy h:mm aaa'; // Mar 23, 2020 8:29:32 AM CDT
 
@@ -9,7 +9,7 @@ class UsersAPI extends RESTDataSource {
         this.baseURL = process.env.USERS_API_HOST;
     }
 
-    reduceUser(user, dateFormat = DATE_FORMAT) {
+    reduceUser(user, dateFormat) {
         return {
             ...user,
             fullName: `${user.firstName} ${user.lastName}`,
@@ -20,7 +20,6 @@ class UsersAPI extends RESTDataSource {
 
     async getUsers({ dateFormat = DATE_FORMAT }) {
         const users = await this.get('users');
-
         return users.map(user => this.reduceUser(user, dateFormat));
     }
 

@@ -1,7 +1,8 @@
 const resolvers = {
     Query: {
-        users: async (_, options, { dataSources }) =>
-            await dataSources.UsersAPI.getUsers(options),
+        users: async (_, options, { dataSources }) => {
+            return await dataSources.UsersAPI.getUsers(options);
+        },
         user: async (_, options, { dataSources }) =>
             await dataSources.UsersAPI.getUser(options)
     },
