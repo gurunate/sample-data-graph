@@ -69,6 +69,7 @@ mutation {
 
 ### Related Resources
 
+-   [data-graph-demo](https://github.com/gurunate/data-graph-demo)
 -   [sample-web-app](https://github.com/gurunate/sample-web-app)
 -   [users-service](https://github.com/gurunate/users-service)
 
