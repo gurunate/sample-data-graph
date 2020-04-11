@@ -16,7 +16,7 @@ $ npm i
 $ npm start
 ```
 
-#### Playground (GraphiQL)
+#### Playground
 
 -   http://localhost:4000
 
@@ -25,7 +25,7 @@ $ npm start
 ##### Queries
 
 ```javascript
-query {
+query GetUsers {
   users {
     id
     firstName
@@ -38,7 +38,7 @@ query {
 ##### Mutations
 
 ```javascript
-mutation saveUpate($user: SaveUserInput!) {
+mutation SaveUser($user: SaveUserInput!) {
   saveUser(input: $user) {
     firstName
     lastName
@@ -53,7 +53,7 @@ mutation saveUpate($user: SaveUserInput!) {
 {
     "user": {
         "firstName": "Guy",
-        "lastName": "gieri",
+        "lastName": "Fieri",
         "email": "guy.fieri@flavortown.com"
     }
 }
