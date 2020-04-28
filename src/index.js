@@ -1,5 +1,6 @@
 const { ApolloServer, gql } = require('apollo-server');
 const users = require('./users');
+const addresses = require('./addresses');
 const todos = require('./todos');
 
 require('dotenv').config();
@@ -28,9 +29,10 @@ const server = new ApolloServer({
         // add the user to the context
         return { user };
     },
-    typeDefs: [typeDef, users.typeDef, todos.typeDef],
-    resolvers: [users.resolvers, todos.resolvers],
+    typeDefs: [typeDef, addresses.typeDef, users.typeDef, todos.typeDef],
+    resolvers: [addresses.resolvers, users.resolvers, todos.resolvers],
     dataSources: () => ({
+        AddressesAPI: new addresses.AddressesAPI(),
         UsersAPI: new users.UsersAPI(),
         TodosAPI: new todos.TodosAPI()
     })
@@ -40,7 +42,7 @@ const server = new ApolloServer({
 // // Additional middleware can be mounted at this point to run before Apollo.
 // app.use('*', jwtCheck, requireAuth, checkScope);
 
-// server.applyMiddleware({ app, path: '/specialUrl' }); 
+// server.applyMiddleware({ app, path: '/specialUrl' });
 
 server.listen().then(({ url }) => {
     console.log(`🚀  Server ready at ${url}`);

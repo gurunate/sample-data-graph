@@ -9,7 +9,7 @@ class UsersAPI extends RESTDataSource {
         this.baseURL = process.env.USERS_API_HOST;
     }
 
-    reduceUser(user, dateFormat) {
+    reduceUser(user, dateFormat = DATE_FORMAT) {
         return {
             ...user,
             fullName: `${user.firstName} ${user.lastName}`,
@@ -23,7 +23,7 @@ class UsersAPI extends RESTDataSource {
         return users.map(user => this.reduceUser(user, dateFormat));
     }
 
-    async getUser({ id, dateFormat }) {
+    async getUser({ id, dateFormat = DATE_FORMAT }) {
         const user = await this.get(`users/${id}`);
 
         return this.reduceUser(user, dateFormat);

@@ -7,10 +7,12 @@ const typeDef = gql`
         lastName: String!
         fullName: String
         email: String!
+        description: String
         createdAt: String
         createdAtFormatted: String
         updatedAt: String
         updatedAtFormatted: String
+        addresses: [Address]
     }
 
     extend type Query {
