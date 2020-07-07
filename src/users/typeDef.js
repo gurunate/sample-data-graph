@@ -7,15 +7,16 @@ const typeDef = gql`
         lastName: String!
         fullName: String
         email: String!
-        createdAt: String
-        createdAtFormatted: String
-        updatedAt: String
-        updatedAtFormatted: String
+        createdAt: Date @formattableDate
+        updatedAt: Date @formattableDate
     }
+
+    scalar Date
 
     extend type Query {
         users(dateFormat: String): [User]
         user(id: ID!, dateFormat: String): User
+        today: Date @formattableDate
     }
 
     input SaveUserInput {

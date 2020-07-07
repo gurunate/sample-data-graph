@@ -1,9 +1,9 @@
-const UsersAPI = require('./UsersAPI');
+const dataSource = require('./dataSource');
 const { resolvers } = require('./resolvers');
 const { typeDef } = require('./typeDef');
 
 module.exports = {
-    UsersAPI,
+    dataSource,
     resolvers,
     typeDef
 };

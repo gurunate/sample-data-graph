@@ -1,6 +1,6 @@
 const { RESTDataSource } = require('apollo-datasource-rest');
 
-class TodosAPI extends RESTDataSource {
+class DataSource extends RESTDataSource {
     constructor() {
         super();
         this.baseURL = process.env.JSONPLACEHOLDER_API_HOST;
@@ -19,4 +19,4 @@ class TodosAPI extends RESTDataSource {
     }
 }
 
-module.exports = TodosAPI;
+module.exports = DataSource;

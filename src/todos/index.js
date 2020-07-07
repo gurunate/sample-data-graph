@@ -1,9 +1,9 @@
-const TodosAPI = require('./TodosAPI');
+const dataSource = require('./dataSource');
 const { resolvers } = require('./resolvers');
 const { typeDef } = require('./typeDef');
 
 module.exports = {
-    TodosAPI,
+    dataSource,
     resolvers,
     typeDef
 };

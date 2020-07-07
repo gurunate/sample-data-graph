@@ -1,8 +1,12 @@
 const { ApolloServer, gql } = require('apollo-server');
+const directives = require('./directives');
+
 const users = require('./users');
 const todos = require('./todos');
 
 require('dotenv').config();
+
+const PORT = 4001;
 
 const typeDef = gql`
     type Query
@@ -28,11 +32,15 @@ const server = new ApolloServer({
         // add the user to the context
         return { user };
     },
-    typeDefs: [typeDef, users.typeDef, todos.typeDef],
+    typeDefs: [typeDef, users.typeDef, todos.typeDef, directives.typeDef],
     resolvers: [users.resolvers, todos.resolvers],
+    engine: {
+        apiKey: 'service:sample-data-graph:z-uiWrAK2MJXG04jMeLAqA'
+    },
+    schemaDirectives: directives.directives,
     dataSources: () => ({
-        UsersAPI: new users.UsersAPI(),
-        TodosAPI: new todos.TodosAPI()
+        UsersAPI: new users.dataSource(),
+        TodosAPI: new todos.dataSource()
     })
 });
 
@@ -40,8 +48,8 @@ const server = new ApolloServer({
 // // Additional middleware can be mounted at this point to run before Apollo.
 // app.use('*', jwtCheck, requireAuth, checkScope);
 
-// server.applyMiddleware({ app, path: '/specialUrl' }); 
+// server.applyMiddleware({ app, path: '/specialUrl' });
 
-server.listen().then(({ url }) => {
+server.listen({ port: PORT }).then(({ url }) => {
     console.log(`🚀  Server ready at ${url}`);
 });
